@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор полива растений</title>
+    <!-- Подключение шрифта Inter -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.8/index.css">
+    <!-- Подключение нашего CSS файла -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>💧 Калькулятор полива</h1>
+        <p class="subtitle">Рассчитайте оптимальный объем воды для вашего участка</p>
+    </header>
+
+    <form id="calcForm">
+        <!-- Культура -->
+        <div class="form-group">
+            <label for="crop">Культура</label>
+            <select id="crop" required>
+                <option value="" disabled selected>Выберите культуру</option>
+                <option value="tomato">Томат</option>
+                <option value="cucumber">Огурец</option>
+                <option value="potato">Картофель</option>
+                <option value="wheat">Пшеница</option>
+                <option value="cabbage">Капуста</option>
+            </select>
+        </div>
+
+        <!-- Тип почвы -->
+        <div class="form-group">
+            <label for="soil">Тип почвы</label>
+            <select id="soil" required>
+                <option value="" disabled selected>Выберите тип почвы</option>
+                <option value="sand">Песчаная</option>
+                <option value="clay">Глинистая</option>
+                <option value="loam">Суглинистая</option>
+            </select>
+        </div>
+
+        <!-- Температура -->
+        <div class="form-group">
+            <label for="temp">Температура воздуха (°C)</label>
+            <input type="number" id="temp" placeholder="Например: 28" min="-10" max="60" step="0.1" required>
+        </div>
+
+        <!-- Площадь -->
+        <div class="form-group">
+            <label for="area">Площадь участка (м²)</label>
+            <input type="number" id="area" placeholder="Например: 50" min="1" step="0.1" required>
+        </div>
+
+        <!-- Дни без осадков -->
+        <div class="form-group">
+            <label for="days">Дней без осадков</label>
+            <input type="number" id="days" placeholder="Например: 3" min="0" step="1" required>
+        </div>
+
+        <button type="submit">Рассчитать</button>
+        <div id="errorMsg" class="error-message">Пожалуйста, заполните все поля корректно.</div>
+    </form>
+
+    <div id="resultSection">
+        <div class="result-card">
+            <div class="volume-label">Необходимый объем воды</div>
+            <div class="water-volume" id="resVolume">0 л</div>
+
+            <span id="resLevel" class="badge medium">Средний уровень</span>
+
+            <div class="recommendation" id="resRec">
+                Рекомендация появится здесь.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Подключение нашего JavaScript файла -->
+<script src="script.js"></script>
+
+</body>
+</html>
